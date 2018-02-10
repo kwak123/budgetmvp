@@ -9,10 +9,12 @@ class Budget {
     // May need further safety checks
     if (isNaN(value)) { throw `Invalid value for ${this.category}, received: ${value}`; }
     this.value = (Number(this.value) + Number(value)).toFixed(2);
+    return this.value;
   }
 
   subtract(value) {
-    return this.value -= value;
+    this.value = (Number(this.value) - Number(value)).toFixed(2);
+    return this.value;
   }
 }
 

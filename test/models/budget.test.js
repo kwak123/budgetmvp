@@ -18,12 +18,18 @@ describe('budget model', () => {
     expect(testBudget.value).toEqual(testValue);
   });
 
-  it('should be able to add to its current value', () => {
+  it('should be able to add to its current value, returning new value', () => {
     let expected = '100.00'; // starting from 0
-    budget.add('100.00');
+    let newValue = budget.add('100.00');
     expect(budget.value).toEqual(expected);
+    expect(newValue).toEqual(expected);
   });
 
-  it('should be able to subtract from its current value', () => {
+  it('should be able to subtract from its current value, returning new value', () => {
+    let expected = '50.00';
+    budget.add('100.00');
+    var newValue = budget.subtract(50);
+    expect(budget.value).toEqual(expected);
+    expect(newValue).toEqual(expected);
   });
 });
